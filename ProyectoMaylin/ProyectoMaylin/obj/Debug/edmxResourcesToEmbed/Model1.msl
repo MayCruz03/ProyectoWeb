@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdProyectoWeb_MaylinCruzModelStoreContainer" CdmEntityContainer="bdProyectoWeb_MaylinCruzEntities">
+    <EntitySetMapping Name="tblCitizens">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblCitizen">
+        <MappingFragment StoreEntitySet="tblCitizens">
+          <ScalarProperty Name="cit_id" ColumnName="cit_id" />
+          <ScalarProperty Name="cit_name" ColumnName="cit_name" />
+          <ScalarProperty Name="cit_lastname" ColumnName="cit_lastname" />
+          <ScalarProperty Name="cit_birthdate" ColumnName="cit_birthdate" />
+          <ScalarProperty Name="cit_age" ColumnName="cit_age" />
+          <ScalarProperty Name="cit_gender" ColumnName="cit_gender" />
+          <ScalarProperty Name="cit_telephone" ColumnName="cit_telephone" />
+          <ScalarProperty Name="cit_direction" ColumnName="cit_direction" />
+          <ScalarProperty Name="cit_bloodType" ColumnName="cit_bloodType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocuments">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblDocument">
+        <MappingFragment StoreEntitySet="tblDocuments">
+          <ScalarProperty Name="doc_id" ColumnName="doc_id" />
+          <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+          <ScalarProperty Name="doc_category" ColumnName="doc_category" />
+          <ScalarProperty Name="doc_pricecost" ColumnName="doc_pricecost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocumentXCitizens">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblDocumentXCitizen">
+        <MappingFragment StoreEntitySet="tblDocumentXCitizens">
+          <ScalarProperty Name="DoCi_id" ColumnName="DoCi_id" />
+          <ScalarProperty Name="doc_id" ColumnName="doc_id" />
+          <ScalarProperty Name="cit_id" ColumnName="cit_id" />
+          <ScalarProperty Name="DoCi_StatusExamenOral" ColumnName="DoCi_StatusExamenOral" />
+          <ScalarProperty Name="DoCi_StatusExamenPractico" ColumnName="DoCi_StatusExamenPractico" />
+          <ScalarProperty Name="DoCi_DateOfIssue" ColumnName="DoCi_DateOfIssue" />
+          <ScalarProperty Name="DoCi_FinishDate" ColumnName="DoCi_FinishDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRols">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblRol">
+        <MappingFragment StoreEntitySet="tblRol">
+          <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+          <ScalarProperty Name="rol_descripcion" ColumnName="rol_descripcion" />
+          <ScalarProperty Name="rol_observaciones" ColumnName="rol_observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTransports">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblTransport">
+        <MappingFragment StoreEntitySet="tblTransport">
+          <ScalarProperty Name="tra_id" ColumnName="tra_id" />
+          <ScalarProperty Name="tra_description" ColumnName="tra_description" />
+          <ScalarProperty Name="tra_type" ColumnName="tra_type" />
+          <ScalarProperty Name="tra_category" ColumnName="tra_category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTransportXCitizens">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblTransportXCitizen">
+        <MappingFragment StoreEntitySet="tblTransportXCitizens">
+          <ScalarProperty Name="TrCi_id" ColumnName="TrCi_id" />
+          <ScalarProperty Name="tra_id" ColumnName="tra_id" />
+          <ScalarProperty Name="cit_id" ColumnName="cit_id" />
+          <ScalarProperty Name="TrCi_brand" ColumnName="TrCi_brand" />
+          <ScalarProperty Name="TrCi_model" ColumnName="TrCi_model" />
+          <ScalarProperty Name="TrCi_plate" ColumnName="TrCi_plate" />
+          <ScalarProperty Name="TrCi_year" ColumnName="TrCi_year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="use_id" ColumnName="use_id" />
+          <ScalarProperty Name="use_idnumber" ColumnName="use_idnumber" />
+          <ScalarProperty Name="use_name" ColumnName="use_name" />
+          <ScalarProperty Name="use_lastname" ColumnName="use_lastname" />
+          <ScalarProperty Name="use_nickname" ColumnName="use_nickname" />
+          <ScalarProperty Name="use_password" ColumnName="use_password" />
+          <ScalarProperty Name="use_gender" ColumnName="use_gender" />
+          <ScalarProperty Name="use_email" ColumnName="use_email" />
+          <ScalarProperty Name="use_telephone" ColumnName="use_telephone" />
+          <ScalarProperty Name="use_rol" ColumnName="use_rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

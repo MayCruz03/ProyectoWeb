@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Mostrar todos los usuarios</h3>
+<a href="@Url.Action("Create", "tblRol")">
+    Crear
+</a>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Observaciones</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+    </tr>
+    <tbody id="DetRol"></tbody>
+</table>
+<p id="counter"></p>
+<script src="~/Scripts/App/Rol.js" asp-append-version="true"></script>
+<script type="text/javascript">
+        getRol();
+</script>

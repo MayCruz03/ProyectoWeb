@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mt-5">Crear nuevo usuario</h5>
+            <a href="@Url.Action("Index", "tblUser")">
+                Regresar
+                <i class="left arrow icon"></i>
+            </a>
+        </div>
+        <div class="card-body table-border-style">
+            <hr>
+            <form action="javascript:void(0);" method="POST" onsubmit="addUser()">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="Identificacion"># Identificación</label>
+                        <input type="text" class="form-control" id="Identificacion" placeholder="1234567890000">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" id="Nombre" placeholder="Ema">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Apellido">Apellido</label>
+                        <input type="text" class="form-control" id="Apellido" placeholder="Ramirez">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="Email">Email</label>
+                        <input type="email" class="form-control" id="Email" placeholder="emarami@gmail.com">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Usuario">Usuario</label>
+                        <input type="text" class="form-control" id="Usuario" placeholder="ema05">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" id="Password" placeholder="******">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Telefono">Télefono</label>
+                        <input type="text" class="form-control" id="Telefono" placeholder="99887766">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Rol">Rol</label>
+                        <select id="Rol" class="form-control">
+                            <option value="">Cargando roles...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="rdbSexo">Sexo</label>
+                        <br />
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" name="rbSexo" class="custom-control-input input-primary" id="Sexo1" checked="">
+                            <label class="custom-control-label" for="Sexo1">Femenino</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" name="rbSexo" class="custom-control-input input-primary" id="Sexo2">
+                            <label class="custom-control-label" for="Sexo2">Masculino</label>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn  btn-primary" value="Guardar">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/App/Usuario.js" asp-append-version="true"></script>

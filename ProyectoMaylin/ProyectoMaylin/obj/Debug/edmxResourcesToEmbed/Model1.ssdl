@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdProyectoWeb_MaylinCruzModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblCitizens">
+    <Key>
+      <PropertyRef Name="cit_id" />
+    </Key>
+    <Property Name="cit_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cit_name" Type="varchar" MaxLength="60" />
+    <Property Name="cit_lastname" Type="varchar" MaxLength="60" />
+    <Property Name="cit_birthdate" Type="date" />
+    <Property Name="cit_age" Type="int" />
+    <Property Name="cit_gender" Type="char" MaxLength="1" />
+    <Property Name="cit_telephone" Type="varchar" MaxLength="12" />
+    <Property Name="cit_direction" Type="varchar(max)" />
+    <Property Name="cit_bloodType" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="tblDocuments">
+    <Key>
+      <PropertyRef Name="doc_id" />
+    </Key>
+    <Property Name="doc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doc_type" Type="varchar" MaxLength="70" />
+    <Property Name="doc_category" Type="varchar" MaxLength="80" />
+    <Property Name="doc_pricecost" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblDocumentXCitizens">
+    <Key>
+      <PropertyRef Name="DoCi_id" />
+    </Key>
+    <Property Name="DoCi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doc_id" Type="int" />
+    <Property Name="cit_id" Type="int" />
+    <Property Name="DoCi_StatusExamenOral" Type="bit" />
+    <Property Name="DoCi_StatusExamenPractico" Type="bit" />
+    <Property Name="DoCi_DateOfIssue" Type="date" />
+    <Property Name="DoCi_FinishDate" Type="date" />
+  </EntityType>
+  <EntityType Name="tblRol">
+    <Key>
+      <PropertyRef Name="rol_id" />
+    </Key>
+    <Property Name="rol_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol_descripcion" Type="varchar" MaxLength="60" />
+    <Property Name="rol_observaciones" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tblTransport">
+    <Key>
+      <PropertyRef Name="tra_id" />
+    </Key>
+    <Property Name="tra_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tra_description" Type="varchar" MaxLength="50" />
+    <Property Name="tra_type" Type="varchar" MaxLength="50" />
+    <Property Name="tra_category" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblTransportXCitizens">
+    <Key>
+      <PropertyRef Name="TrCi_id" />
+    </Key>
+    <Property Name="TrCi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tra_id" Type="int" />
+    <Property Name="cit_id" Type="int" />
+    <Property Name="TrCi_brand" Type="varchar" MaxLength="70" />
+    <Property Name="TrCi_model" Type="varchar" MaxLength="70" />
+    <Property Name="TrCi_plate" Type="varchar" MaxLength="13" />
+    <Property Name="TrCi_year" Type="int" />
+  </EntityType>
+  <EntityType Name="tblUsers">
+    <Key>
+      <PropertyRef Name="use_id" />
+    </Key>
+    <Property Name="use_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="use_idnumber" Type="varchar" MaxLength="13" />
+    <Property Name="use_name" Type="varchar" MaxLength="70" />
+    <Property Name="use_lastname" Type="varchar" MaxLength="70" />
+    <Property Name="use_nickname" Type="varchar" MaxLength="70" />
+    <Property Name="use_password" Type="varchar(max)" />
+    <Property Name="use_gender" Type="char" MaxLength="1" />
+    <Property Name="use_email" Type="varchar(max)" />
+    <Property Name="use_telephone" Type="varchar" MaxLength="12" />
+    <Property Name="use_rol" Type="int" />
+  </EntityType>
+  <Association Name="FK__tblDocume__cit_i__300424B4">
+    <End Role="tblCitizens" Type="Self.tblCitizens" Multiplicity="0..1" />
+    <End Role="tblDocumentXCitizens" Type="Self.tblDocumentXCitizens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCitizens">
+        <PropertyRef Name="cit_id" />
+      </Principal>
+      <Dependent Role="tblDocumentXCitizens">
+        <PropertyRef Name="cit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblDocume__DoCi___2F10007B">
+    <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="0..1" />
+    <End Role="tblDocumentXCitizens" Type="Self.tblDocumentXCitizens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDocuments">
+        <PropertyRef Name="doc_id" />
+      </Principal>
+      <Dependent Role="tblDocumentXCitizens">
+        <PropertyRef Name="doc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblTransp__cit_i__33D4B598">
+    <End Role="tblCitizens" Type="Self.tblCitizens" Multiplicity="0..1" />
+    <End Role="tblTransportXCitizens" Type="Self.tblTransportXCitizens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCitizens">
+        <PropertyRef Name="cit_id" />
+      </Principal>
+      <Dependent Role="tblTransportXCitizens">
+        <PropertyRef Name="cit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblTransp__TrCi___32E0915F">
+    <End Role="tblTransport" Type="Self.tblTransport" Multiplicity="0..1" />
+    <End Role="tblTransportXCitizens" Type="Self.tblTransportXCitizens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTransport">
+        <PropertyRef Name="tra_id" />
+      </Principal>
+      <Dependent Role="tblTransportXCitizens">
+        <PropertyRef Name="tra_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblUsers__use_ro__267ABA7A">
+    <End Role="tblRol" Type="Self.tblRol" Multiplicity="0..1" />
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRol">
+        <PropertyRef Name="rol_id" />
+      </Principal>
+      <Dependent Role="tblUsers">
+        <PropertyRef Name="use_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bdProyectoWeb_MaylinCruzModelStoreContainer">
+    <EntitySet Name="tblCitizens" EntityType="Self.tblCitizens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDocuments" EntityType="Self.tblDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDocumentXCitizens" EntityType="Self.tblDocumentXCitizens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRol" EntityType="Self.tblRol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTransport" EntityType="Self.tblTransport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTransportXCitizens" EntityType="Self.tblTransportXCitizens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblDocume__cit_i__300424B4" Association="Self.FK__tblDocume__cit_i__300424B4">
+      <End Role="tblCitizens" EntitySet="tblCitizens" />
+      <End Role="tblDocumentXCitizens" EntitySet="tblDocumentXCitizens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblDocume__DoCi___2F10007B" Association="Self.FK__tblDocume__DoCi___2F10007B">
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+      <End Role="tblDocumentXCitizens" EntitySet="tblDocumentXCitizens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblTransp__cit_i__33D4B598" Association="Self.FK__tblTransp__cit_i__33D4B598">
+      <End Role="tblCitizens" EntitySet="tblCitizens" />
+      <End Role="tblTransportXCitizens" EntitySet="tblTransportXCitizens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblTransp__TrCi___32E0915F" Association="Self.FK__tblTransp__TrCi___32E0915F">
+      <End Role="tblTransport" EntitySet="tblTransport" />
+      <End Role="tblTransportXCitizens" EntitySet="tblTransportXCitizens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblUsers__use_ro__267ABA7A" Association="Self.FK__tblUsers__use_ro__267ABA7A">
+      <End Role="tblRol" EntitySet="tblRol" />
+      <End Role="tblUsers" EntitySet="tblUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
