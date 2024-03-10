@@ -12,22 +12,21 @@ namespace ProyectoMaylin
     using System;
     using System.Collections.Generic;
     
-    public partial class tblRol
+    public partial class tblScreen
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblRol()
+        public tblScreen()
         {
             this.tblRestrictions = new HashSet<tblRestriction>();
-            this.tblUsers = new HashSet<tblUser>();
         }
     
-        public int rol_id { get; set; }
-        public string rol_description { get; set; }
-        public string rol_observations { get; set; }
+        public int scr_id { get; set; }
+        public string scr_description { get; set; }
+        public Nullable<bool> scr_active { get; set; }
+        public string scr_controller { get; set; }
+        public string scr_action { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblRestriction> tblRestrictions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblUser> tblUsers { get; set; }
     }
 }

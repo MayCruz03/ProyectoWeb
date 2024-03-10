@@ -19,8 +19,9 @@ namespace ProyectoMaylin
         public Nullable<int> cit_id { get; set; }
         public string TrCi_brand { get; set; }
         public string TrCi_model { get; set; }
-        public string TrCi_plate { get; set; }
         public Nullable<int> TrCi_year { get; set; }
+        public string TrCi_serialNumber { get; set; }
+        public string TrCi_vehicleDescription { get; set; }
     
         public virtual tblCitizen tblCitizen { get; set; }
         public virtual tblTransport tblTransport { get; set; }

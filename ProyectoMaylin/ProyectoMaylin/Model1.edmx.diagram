@@ -4,19 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ec98cf6c9ac45a5909986951cbe3c1b" Name="Diagram1">
-        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblCitizen" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblDocument" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblDocumentXCitizen" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblRol" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblTransport" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblTransportXCitizen" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblUser" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblDocume__cit_i__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblTransp__cit_i__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblDocume__DoCi___2F10007B" ManuallyRouted="false" />
+      <Diagram DiagramId="234f76ec26af42dcaf3ca8c3777b5b9f" Name="Diagram1">
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblCitizen" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblCountry" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblDocumentXCitizen" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblRestriction" Width="1.5" PointX="8" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblRol" Width="1.5" PointX="5.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblScreen" Width="1.5" PointX="5.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblTransport" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblTransportXCitizen" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblTypeDocument" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdProyectoWeb_MaylinCruzModel.tblUser" Width="1.5" PointX="8" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblCitize__cit_c__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblDocume__cit_i__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblTransp__cit_i__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblDocume__DoCi___31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblRestri__res_R__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblRestri__res_R__3C69FB99" ManuallyRouted="false" />
         <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblUsers__use_ro__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblTransp__TrCi___32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="bdProyectoWeb_MaylinCruzModel.FK__tblTransp__TrCi___35BCFE0A" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

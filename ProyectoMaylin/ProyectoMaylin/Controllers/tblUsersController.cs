@@ -33,8 +33,7 @@ namespace ProyectoMaylin.Controllers
                 use_gender = u.use_gender,
                 use_email = u.use_email,
                 use_telephone = u.use_telephone,
-                use_rol = (int)u.use_rol
-
+                use_rol = u.use_rol
             });
         }
 
@@ -59,7 +58,7 @@ namespace ProyectoMaylin.Controllers
                 use_gender = user.use_gender,
                 use_email = user.use_email,
                 use_telephone = user.use_telephone,
-                use_rol = (int)user.use_rol
+                use_rol = user.use_rol
             });
         }
 
@@ -155,7 +154,7 @@ namespace ProyectoMaylin.Controllers
         public string use_email { get; set; }
         public string use_telephone { get; set; }
         // Propiedad para el rol del usuario
-        public int use_rol { get; set; }
+        public Nullable<int> use_rol { get; set; }
 
         // No serializar tblRol para evitar referencia circular
         [JsonIgnore]

@@ -24,8 +24,8 @@ namespace ProyectoMaylin.Controllers
             var roles = db.tblRols.Select(r => new RolDTO
             {
                 rol_id = r.rol_id,
-                rol_descripcion = r.rol_descripcion,
-                rol_observaciones = r.rol_observaciones
+                rol_description = r.rol_description,
+                rol_observations = r.rol_observations
             }).ToList(); // Convertir a lista para evitar problemas de serialización circular
 
             return roles.AsQueryable();
@@ -45,8 +45,8 @@ namespace ProyectoMaylin.Controllers
             return Ok(new RolDTO
             {
                 rol_id = rol.rol_id,
-                rol_descripcion = rol.rol_descripcion,
-                rol_observaciones = rol.rol_observaciones
+                rol_description = rol.rol_description,
+                rol_observations = rol.rol_observations
             });
         }
 
@@ -133,7 +133,7 @@ namespace ProyectoMaylin.Controllers
     public class RolDTO
     {
         public int rol_id { get; set; }
-        public string rol_descripcion { get; set; }
-        public string rol_observaciones { get; set; }
+        public string rol_description { get; set; }
+        public string rol_observations { get; set; }
     }
 }

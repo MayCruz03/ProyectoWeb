@@ -5,24 +5,28 @@
       <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblCitizen">
         <MappingFragment StoreEntitySet="tblCitizens">
           <ScalarProperty Name="cit_id" ColumnName="cit_id" />
+          <ScalarProperty Name="cit_identifyType" ColumnName="cit_identifyType" />
+          <ScalarProperty Name="cit_idnumber" ColumnName="cit_idnumber" />
           <ScalarProperty Name="cit_name" ColumnName="cit_name" />
           <ScalarProperty Name="cit_lastname" ColumnName="cit_lastname" />
           <ScalarProperty Name="cit_birthdate" ColumnName="cit_birthdate" />
-          <ScalarProperty Name="cit_age" ColumnName="cit_age" />
           <ScalarProperty Name="cit_gender" ColumnName="cit_gender" />
           <ScalarProperty Name="cit_telephone" ColumnName="cit_telephone" />
-          <ScalarProperty Name="cit_direction" ColumnName="cit_direction" />
+          <ScalarProperty Name="cit_email" ColumnName="cit_email" />
+          <ScalarProperty Name="cit_address" ColumnName="cit_address" />
+          <ScalarProperty Name="cit_civilStatus" ColumnName="cit_civilStatus" />
           <ScalarProperty Name="cit_bloodType" ColumnName="cit_bloodType" />
+          <ScalarProperty Name="cit_country" ColumnName="cit_country" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblDocuments">
-      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblDocument">
-        <MappingFragment StoreEntitySet="tblDocuments">
-          <ScalarProperty Name="doc_id" ColumnName="doc_id" />
-          <ScalarProperty Name="doc_type" ColumnName="doc_type" />
-          <ScalarProperty Name="doc_category" ColumnName="doc_category" />
-          <ScalarProperty Name="doc_pricecost" ColumnName="doc_pricecost" />
+    <EntitySetMapping Name="tblCountries">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblCountry">
+        <MappingFragment StoreEntitySet="tblCountries">
+          <ScalarProperty Name="cou_id" ColumnName="cou_id" />
+          <ScalarProperty Name="cou_code" ColumnName="cou_code" />
+          <ScalarProperty Name="cou_name" ColumnName="cou_name" />
+          <ScalarProperty Name="cou_nationality" ColumnName="cou_nationality" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -32,10 +36,19 @@
           <ScalarProperty Name="DoCi_id" ColumnName="DoCi_id" />
           <ScalarProperty Name="doc_id" ColumnName="doc_id" />
           <ScalarProperty Name="cit_id" ColumnName="cit_id" />
-          <ScalarProperty Name="DoCi_StatusExamenOral" ColumnName="DoCi_StatusExamenOral" />
-          <ScalarProperty Name="DoCi_StatusExamenPractico" ColumnName="DoCi_StatusExamenPractico" />
           <ScalarProperty Name="DoCi_DateOfIssue" ColumnName="DoCi_DateOfIssue" />
-          <ScalarProperty Name="DoCi_FinishDate" ColumnName="DoCi_FinishDate" />
+          <ScalarProperty Name="DoCi_plateNumber" ColumnName="DoCi_plateNumber" />
+          <ScalarProperty Name="DoCi_observations" ColumnName="DoCi_observations" />
+          <ScalarProperty Name="DoCi_number" ColumnName="DoCi_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRestrictions">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblRestriction">
+        <MappingFragment StoreEntitySet="tblRestrictions">
+          <ScalarProperty Name="res_id" ColumnName="res_id" />
+          <ScalarProperty Name="res_ScreenID" ColumnName="res_ScreenID" />
+          <ScalarProperty Name="res_RolID" ColumnName="res_RolID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -43,8 +56,19 @@
       <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblRol">
         <MappingFragment StoreEntitySet="tblRol">
           <ScalarProperty Name="rol_id" ColumnName="rol_id" />
-          <ScalarProperty Name="rol_descripcion" ColumnName="rol_descripcion" />
-          <ScalarProperty Name="rol_observaciones" ColumnName="rol_observaciones" />
+          <ScalarProperty Name="rol_description" ColumnName="rol_description" />
+          <ScalarProperty Name="rol_observations" ColumnName="rol_observations" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblScreens">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblScreen">
+        <MappingFragment StoreEntitySet="tblScreens">
+          <ScalarProperty Name="scr_id" ColumnName="scr_id" />
+          <ScalarProperty Name="scr_description" ColumnName="scr_description" />
+          <ScalarProperty Name="scr_active" ColumnName="scr_active" />
+          <ScalarProperty Name="scr_controller" ColumnName="scr_controller" />
+          <ScalarProperty Name="scr_action" ColumnName="scr_action" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -66,8 +90,19 @@
           <ScalarProperty Name="cit_id" ColumnName="cit_id" />
           <ScalarProperty Name="TrCi_brand" ColumnName="TrCi_brand" />
           <ScalarProperty Name="TrCi_model" ColumnName="TrCi_model" />
-          <ScalarProperty Name="TrCi_plate" ColumnName="TrCi_plate" />
           <ScalarProperty Name="TrCi_year" ColumnName="TrCi_year" />
+          <ScalarProperty Name="TrCi_serialNumber" ColumnName="TrCi_serialNumber" />
+          <ScalarProperty Name="TrCi_vehicleDescription" ColumnName="TrCi_vehicleDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTypeDocuments">
+      <EntityTypeMapping TypeName="bdProyectoWeb_MaylinCruzModel.tblTypeDocument">
+        <MappingFragment StoreEntitySet="tblTypeDocuments">
+          <ScalarProperty Name="doc_id" ColumnName="doc_id" />
+          <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+          <ScalarProperty Name="doc_observations" ColumnName="doc_observations" />
+          <ScalarProperty Name="doc_pricecost" ColumnName="doc_pricecost" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

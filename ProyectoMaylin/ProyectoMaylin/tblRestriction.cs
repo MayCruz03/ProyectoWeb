@@ -12,17 +12,13 @@ namespace ProyectoMaylin
     using System;
     using System.Collections.Generic;
     
-    public partial class tblDocumentXCitizen
+    public partial class tblRestriction
     {
-        public int DoCi_id { get; set; }
-        public Nullable<int> doc_id { get; set; }
-        public Nullable<int> cit_id { get; set; }
-        public Nullable<System.DateTime> DoCi_DateOfIssue { get; set; }
-        public string DoCi_plateNumber { get; set; }
-        public string DoCi_observations { get; set; }
-        public string DoCi_number { get; set; }
+        public int res_id { get; set; }
+        public Nullable<int> res_ScreenID { get; set; }
+        public Nullable<int> res_RolID { get; set; }
     
-        public virtual tblCitizen tblCitizen { get; set; }
-        public virtual tblTypeDocument tblTypeDocument { get; set; }
+        public virtual tblScreen tblScreen { get; set; }
+        public virtual tblRol tblRol { get; set; }
     }
 }

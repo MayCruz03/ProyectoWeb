@@ -12,22 +12,20 @@ namespace ProyectoMaylin
     using System;
     using System.Collections.Generic;
     
-    public partial class tblRol
+    public partial class tblTypeDocument
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblRol()
+        public tblTypeDocument()
         {
-            this.tblRestrictions = new HashSet<tblRestriction>();
-            this.tblUsers = new HashSet<tblUser>();
+            this.tblDocumentXCitizens = new HashSet<tblDocumentXCitizen>();
         }
     
-        public int rol_id { get; set; }
-        public string rol_description { get; set; }
-        public string rol_observations { get; set; }
+        public int doc_id { get; set; }
+        public string doc_type { get; set; }
+        public string doc_observations { get; set; }
+        public Nullable<decimal> doc_pricecost { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblRestriction> tblRestrictions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblUser> tblUsers { get; set; }
+        public virtual ICollection<tblDocumentXCitizen> tblDocumentXCitizens { get; set; }
     }
 }

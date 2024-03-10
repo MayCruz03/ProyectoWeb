@@ -5,26 +5,31 @@
       <PropertyRef Name="cit_id" />
     </Key>
     <Property Name="cit_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="cit_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-    <Property Name="cit_lastname" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="cit_identifyType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="cit_idnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cit_name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="cit_lastname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="cit_birthdate" Type="DateTime" Precision="0" />
-    <Property Name="cit_age" Type="Int32" />
     <Property Name="cit_gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="cit_telephone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-    <Property Name="cit_direction" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cit_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cit_address" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="cit_civilStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="cit_bloodType" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tblDocumentXCitizens" Relationship="Self.FK__tblDocume__cit_i__300424B4" FromRole="tblCitizens" ToRole="tblDocumentXCitizens" />
-    <NavigationProperty Name="tblTransportXCitizens" Relationship="Self.FK__tblTransp__cit_i__33D4B598" FromRole="tblCitizens" ToRole="tblTransportXCitizens" />
+    <Property Name="cit_country" Type="Int32" />
+    <NavigationProperty Name="tblCountry" Relationship="Self.FK__tblCitize__cit_c__2F10007B" FromRole="tblCitizens" ToRole="tblCountries" />
+    <NavigationProperty Name="tblDocumentXCitizens" Relationship="Self.FK__tblDocume__cit_i__32E0915F" FromRole="tblCitizens" ToRole="tblDocumentXCitizens" />
+    <NavigationProperty Name="tblTransportXCitizens" Relationship="Self.FK__tblTransp__cit_i__36B12243" FromRole="tblCitizens" ToRole="tblTransportXCitizens" />
   </EntityType>
-  <EntityType Name="tblDocument">
+  <EntityType Name="tblCountry">
     <Key>
-      <PropertyRef Name="doc_id" />
+      <PropertyRef Name="cou_id" />
     </Key>
-    <Property Name="doc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="doc_type" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="doc_category" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-    <Property Name="doc_pricecost" Type="Decimal" Precision="18" Scale="2" />
-    <NavigationProperty Name="tblDocumentXCitizens" Relationship="Self.FK__tblDocume__DoCi___2F10007B" FromRole="tblDocuments" ToRole="tblDocumentXCitizens" />
+    <Property Name="cou_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cou_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cou_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="cou_nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblCitizens" Relationship="Self.FK__tblCitize__cit_c__2F10007B" FromRole="tblCountries" ToRole="tblCitizens" />
   </EntityType>
   <EntityType Name="tblDocumentXCitizen">
     <Key>
@@ -33,21 +38,43 @@
     <Property Name="DoCi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="doc_id" Type="Int32" />
     <Property Name="cit_id" Type="Int32" />
-    <Property Name="DoCi_StatusExamenOral" Type="Boolean" />
-    <Property Name="DoCi_StatusExamenPractico" Type="Boolean" />
     <Property Name="DoCi_DateOfIssue" Type="DateTime" Precision="0" />
-    <Property Name="DoCi_FinishDate" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="tblCitizen" Relationship="Self.FK__tblDocume__cit_i__300424B4" FromRole="tblDocumentXCitizens" ToRole="tblCitizens" />
-    <NavigationProperty Name="tblDocument" Relationship="Self.FK__tblDocume__DoCi___2F10007B" FromRole="tblDocumentXCitizens" ToRole="tblDocuments" />
+    <Property Name="DoCi_plateNumber" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="DoCi_observations" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DoCi_number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblCitizen" Relationship="Self.FK__tblDocume__cit_i__32E0915F" FromRole="tblDocumentXCitizens" ToRole="tblCitizens" />
+    <NavigationProperty Name="tblTypeDocument" Relationship="Self.FK__tblDocume__DoCi___31EC6D26" FromRole="tblDocumentXCitizens" ToRole="tblTypeDocuments" />
+  </EntityType>
+  <EntityType Name="tblRestriction">
+    <Key>
+      <PropertyRef Name="res_id" />
+    </Key>
+    <Property Name="res_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="res_ScreenID" Type="Int32" />
+    <Property Name="res_RolID" Type="Int32" />
+    <NavigationProperty Name="tblScreen" Relationship="Self.FK__tblRestri__res_R__3B75D760" FromRole="tblRestrictions" ToRole="tblScreens" />
+    <NavigationProperty Name="tblRol" Relationship="Self.FK__tblRestri__res_R__3C69FB99" FromRole="tblRestrictions" ToRole="tblRol" />
   </EntityType>
   <EntityType Name="tblRol">
     <Key>
       <PropertyRef Name="rol_id" />
     </Key>
     <Property Name="rol_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="rol_descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-    <Property Name="rol_observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rol_description" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="rol_observations" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblRestrictions" Relationship="Self.FK__tblRestri__res_R__3C69FB99" FromRole="tblRol" ToRole="tblRestrictions" />
     <NavigationProperty Name="tblUsers" Relationship="Self.FK__tblUsers__use_ro__267ABA7A" FromRole="tblRol" ToRole="tblUsers" />
+  </EntityType>
+  <EntityType Name="tblScreen">
+    <Key>
+      <PropertyRef Name="scr_id" />
+    </Key>
+    <Property Name="scr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="scr_description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="scr_active" Type="Boolean" />
+    <Property Name="scr_controller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="scr_action" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblRestrictions" Relationship="Self.FK__tblRestri__res_R__3B75D760" FromRole="tblScreens" ToRole="tblRestrictions" />
   </EntityType>
   <EntityType Name="tblTransport">
     <Key>
@@ -57,7 +84,7 @@
     <Property Name="tra_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tra_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tra_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tblTransportXCitizens" Relationship="Self.FK__tblTransp__TrCi___32E0915F" FromRole="tblTransport" ToRole="tblTransportXCitizens" />
+    <NavigationProperty Name="tblTransportXCitizens" Relationship="Self.FK__tblTransp__TrCi___35BCFE0A" FromRole="tblTransport" ToRole="tblTransportXCitizens" />
   </EntityType>
   <EntityType Name="tblTransportXCitizen">
     <Key>
@@ -66,30 +93,53 @@
     <Property Name="TrCi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tra_id" Type="Int32" />
     <Property Name="cit_id" Type="Int32" />
-    <Property Name="TrCi_brand" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="TrCi_model" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="TrCi_plate" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="TrCi_brand" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TrCi_model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="TrCi_year" Type="Int32" />
-    <NavigationProperty Name="tblCitizen" Relationship="Self.FK__tblTransp__cit_i__33D4B598" FromRole="tblTransportXCitizens" ToRole="tblCitizens" />
-    <NavigationProperty Name="tblTransport" Relationship="Self.FK__tblTransp__TrCi___32E0915F" FromRole="tblTransportXCitizens" ToRole="tblTransport" />
+    <Property Name="TrCi_serialNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="TrCi_vehicleDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblCitizen" Relationship="Self.FK__tblTransp__cit_i__36B12243" FromRole="tblTransportXCitizens" ToRole="tblCitizens" />
+    <NavigationProperty Name="tblTransport" Relationship="Self.FK__tblTransp__TrCi___35BCFE0A" FromRole="tblTransportXCitizens" ToRole="tblTransport" />
+  </EntityType>
+  <EntityType Name="tblTypeDocument">
+    <Key>
+      <PropertyRef Name="doc_id" />
+    </Key>
+    <Property Name="doc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="doc_type" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="doc_observations" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="doc_pricecost" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="tblDocumentXCitizens" Relationship="Self.FK__tblDocume__DoCi___31EC6D26" FromRole="tblTypeDocuments" ToRole="tblDocumentXCitizens" />
   </EntityType>
   <EntityType Name="tblUser">
     <Key>
       <PropertyRef Name="use_id" />
     </Key>
     <Property Name="use_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="use_idnumber" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="use_idnumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="use_name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
     <Property Name="use_lastname" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
     <Property Name="use_nickname" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="use_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="use_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="use_gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="use_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="use_telephone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="use_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="use_telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="use_rol" Type="Int32" />
     <NavigationProperty Name="tblRol" Relationship="Self.FK__tblUsers__use_ro__267ABA7A" FromRole="tblUsers" ToRole="tblRol" />
   </EntityType>
-  <Association Name="FK__tblDocume__cit_i__300424B4">
+  <Association Name="FK__tblCitize__cit_c__2F10007B">
+    <End Role="tblCountries" Type="Self.tblCountry" Multiplicity="0..1" />
+    <End Role="tblCitizens" Type="Self.tblCitizen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCountries">
+        <PropertyRef Name="cou_id" />
+      </Principal>
+      <Dependent Role="tblCitizens">
+        <PropertyRef Name="cit_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblDocume__cit_i__32E0915F">
     <End Role="tblCitizens" Type="Self.tblCitizen" Multiplicity="0..1" />
     <End Role="tblDocumentXCitizens" Type="Self.tblDocumentXCitizen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -101,7 +151,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblTransp__cit_i__33D4B598">
+  <Association Name="FK__tblTransp__cit_i__36B12243">
     <End Role="tblCitizens" Type="Self.tblCitizen" Multiplicity="0..1" />
     <End Role="tblTransportXCitizens" Type="Self.tblTransportXCitizen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -113,15 +163,39 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblDocume__DoCi___2F10007B">
-    <End Role="tblDocuments" Type="Self.tblDocument" Multiplicity="0..1" />
+  <Association Name="FK__tblDocume__DoCi___31EC6D26">
+    <End Role="tblTypeDocuments" Type="Self.tblTypeDocument" Multiplicity="0..1" />
     <End Role="tblDocumentXCitizens" Type="Self.tblDocumentXCitizen" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblDocuments">
+      <Principal Role="tblTypeDocuments">
         <PropertyRef Name="doc_id" />
       </Principal>
       <Dependent Role="tblDocumentXCitizens">
         <PropertyRef Name="doc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblRestri__res_R__3B75D760">
+    <End Role="tblScreens" Type="Self.tblScreen" Multiplicity="0..1" />
+    <End Role="tblRestrictions" Type="Self.tblRestriction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblScreens">
+        <PropertyRef Name="scr_id" />
+      </Principal>
+      <Dependent Role="tblRestrictions">
+        <PropertyRef Name="res_ScreenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblRestri__res_R__3C69FB99">
+    <End Role="tblRol" Type="Self.tblRol" Multiplicity="0..1" />
+    <End Role="tblRestrictions" Type="Self.tblRestriction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRol">
+        <PropertyRef Name="rol_id" />
+      </Principal>
+      <Dependent Role="tblRestrictions">
+        <PropertyRef Name="res_RolID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -137,7 +211,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblTransp__TrCi___32E0915F">
+  <Association Name="FK__tblTransp__TrCi___35BCFE0A">
     <End Role="tblTransport" Type="Self.tblTransport" Multiplicity="0..1" />
     <End Role="tblTransportXCitizens" Type="Self.tblTransportXCitizen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -151,29 +225,44 @@
   </Association>
   <EntityContainer Name="bdProyectoWeb_MaylinCruzEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tblCitizens" EntityType="Self.tblCitizen" />
-    <EntitySet Name="tblDocuments" EntityType="Self.tblDocument" />
+    <EntitySet Name="tblCountries" EntityType="Self.tblCountry" />
     <EntitySet Name="tblDocumentXCitizens" EntityType="Self.tblDocumentXCitizen" />
+    <EntitySet Name="tblRestrictions" EntityType="Self.tblRestriction" />
     <EntitySet Name="tblRols" EntityType="Self.tblRol" />
+    <EntitySet Name="tblScreens" EntityType="Self.tblScreen" />
     <EntitySet Name="tblTransports" EntityType="Self.tblTransport" />
     <EntitySet Name="tblTransportXCitizens" EntityType="Self.tblTransportXCitizen" />
+    <EntitySet Name="tblTypeDocuments" EntityType="Self.tblTypeDocument" />
     <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
-    <AssociationSet Name="FK__tblDocume__cit_i__300424B4" Association="Self.FK__tblDocume__cit_i__300424B4">
+    <AssociationSet Name="FK__tblCitize__cit_c__2F10007B" Association="Self.FK__tblCitize__cit_c__2F10007B">
+      <End Role="tblCountries" EntitySet="tblCountries" />
+      <End Role="tblCitizens" EntitySet="tblCitizens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblDocume__cit_i__32E0915F" Association="Self.FK__tblDocume__cit_i__32E0915F">
       <End Role="tblCitizens" EntitySet="tblCitizens" />
       <End Role="tblDocumentXCitizens" EntitySet="tblDocumentXCitizens" />
     </AssociationSet>
-    <AssociationSet Name="FK__tblTransp__cit_i__33D4B598" Association="Self.FK__tblTransp__cit_i__33D4B598">
+    <AssociationSet Name="FK__tblTransp__cit_i__36B12243" Association="Self.FK__tblTransp__cit_i__36B12243">
       <End Role="tblCitizens" EntitySet="tblCitizens" />
       <End Role="tblTransportXCitizens" EntitySet="tblTransportXCitizens" />
     </AssociationSet>
-    <AssociationSet Name="FK__tblDocume__DoCi___2F10007B" Association="Self.FK__tblDocume__DoCi___2F10007B">
-      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    <AssociationSet Name="FK__tblDocume__DoCi___31EC6D26" Association="Self.FK__tblDocume__DoCi___31EC6D26">
+      <End Role="tblTypeDocuments" EntitySet="tblTypeDocuments" />
       <End Role="tblDocumentXCitizens" EntitySet="tblDocumentXCitizens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblRestri__res_R__3B75D760" Association="Self.FK__tblRestri__res_R__3B75D760">
+      <End Role="tblScreens" EntitySet="tblScreens" />
+      <End Role="tblRestrictions" EntitySet="tblRestrictions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblRestri__res_R__3C69FB99" Association="Self.FK__tblRestri__res_R__3C69FB99">
+      <End Role="tblRol" EntitySet="tblRols" />
+      <End Role="tblRestrictions" EntitySet="tblRestrictions" />
     </AssociationSet>
     <AssociationSet Name="FK__tblUsers__use_ro__267ABA7A" Association="Self.FK__tblUsers__use_ro__267ABA7A">
       <End Role="tblRol" EntitySet="tblRols" />
       <End Role="tblUsers" EntitySet="tblUsers" />
     </AssociationSet>
-    <AssociationSet Name="FK__tblTransp__TrCi___32E0915F" Association="Self.FK__tblTransp__TrCi___32E0915F">
+    <AssociationSet Name="FK__tblTransp__TrCi___35BCFE0A" Association="Self.FK__tblTransp__TrCi___35BCFE0A">
       <End Role="tblTransport" EntitySet="tblTransports" />
       <End Role="tblTransportXCitizens" EntitySet="tblTransportXCitizens" />
     </AssociationSet>

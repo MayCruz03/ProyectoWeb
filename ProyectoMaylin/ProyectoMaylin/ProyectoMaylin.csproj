@@ -167,12 +167,15 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\tblCitizensController.cs" />
-    <Compile Include="Controllers\tblDocumentsController.cs" />
+    <Compile Include="Controllers\tblCountriesController.cs" />
     <Compile Include="Controllers\tblDocumentXCitizensController.cs" />
+    <Compile Include="Controllers\tblRestrictionsController.cs" />
     <Compile Include="Controllers\tblRolController.cs" />
     <Compile Include="Controllers\tblRolsController.cs" />
+    <Compile Include="Controllers\tblScreensController.cs" />
     <Compile Include="Controllers\tblTransportsController.cs" />
     <Compile Include="Controllers\tblTransportXCitizensController.cs" />
+    <Compile Include="Controllers\tblTypeDocumentsController.cs" />
     <Compile Include="Controllers\tblUserController.cs" />
     <Compile Include="Controllers\tblUsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -198,19 +201,28 @@
     <Compile Include="tblCitizen.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblDocument.cs">
+    <Compile Include="tblCountry.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="tblDocumentXCitizen.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="tblRestriction.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblRol.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblScreen.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="tblTransport.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="tblTransportXCitizen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTypeDocument.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="tblUser.cs">
@@ -486,8 +498,8 @@
     <Content Include="Global.asax" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -515,13 +527,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -712,6 +717,13 @@
     <Content Include="Content\assets\fonts\inter\Inter-Regular.woff2" />
     <Content Include="Content\assets\fonts\inter\Inter-SemiBold.woff" />
     <Content Include="Content\assets\fonts\inter\Inter-SemiBold.woff2" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

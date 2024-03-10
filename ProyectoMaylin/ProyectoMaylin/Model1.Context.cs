@@ -26,11 +26,14 @@ namespace ProyectoMaylin
         }
     
         public virtual DbSet<tblCitizen> tblCitizens { get; set; }
-        public virtual DbSet<tblDocument> tblDocuments { get; set; }
+        public virtual DbSet<tblCountry> tblCountries { get; set; }
         public virtual DbSet<tblDocumentXCitizen> tblDocumentXCitizens { get; set; }
+        public virtual DbSet<tblRestriction> tblRestrictions { get; set; }
         public virtual DbSet<tblRol> tblRols { get; set; }
+        public virtual DbSet<tblScreen> tblScreens { get; set; }
         public virtual DbSet<tblTransport> tblTransports { get; set; }
         public virtual DbSet<tblTransportXCitizen> tblTransportXCitizens { get; set; }
+        public virtual DbSet<tblTypeDocument> tblTypeDocuments { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
     }
 }

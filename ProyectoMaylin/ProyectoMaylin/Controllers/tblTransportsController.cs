@@ -18,22 +18,34 @@ namespace ProyectoMaylin.Controllers
         private bdProyectoWeb_MaylinCruzEntities db = new bdProyectoWeb_MaylinCruzEntities();
 
         // GET: api/tblTransports
-        public IQueryable<tblTransport> GettblTransports()
+        public IQueryable<TransportDTO> GettblTransports()
         {
-            return db.tblTransports;
+            return db.tblTransports.Select(t => new TransportDTO { 
+                tra_id = t.tra_id,
+                tra_description = t.tra_description,
+                tra_type = t.tra_type,
+                tra_category = t.tra_category
+            });
         }
 
         // GET: api/tblTransports/5
-        [ResponseType(typeof(tblTransport))]
+        [ResponseType(typeof(TransportDTO))]
         public async Task<IHttpActionResult> GettblTransport(int id)
         {
-            tblTransport tblTransport = await db.tblTransports.FindAsync(id);
-            if (tblTransport == null)
+            //SE MODIFICO
+            var tran = await db.tblTransports.FindAsync(id);
+            if (tran == null)
             {
                 return NotFound();
             }
 
-            return Ok(tblTransport);
+            return Ok(new TransportDTO
+            {
+                tra_id = tran.tra_id,
+                tra_description = tran.tra_description,
+                tra_type = tran.tra_type,
+                tra_category = tran.tra_category
+            });
         }
 
         // PUT: api/tblTransports/5
@@ -72,7 +84,7 @@ namespace ProyectoMaylin.Controllers
         }
 
         // POST: api/tblTransports
-        [ResponseType(typeof(tblTransport))]
+        [ResponseType(typeof(TransportDTO))]
         public async Task<IHttpActionResult> PosttblTransport(tblTransport tblTransport)
         {
             if (!ModelState.IsValid)
@@ -87,7 +99,7 @@ namespace ProyectoMaylin.Controllers
         }
 
         // DELETE: api/tblTransports/5
-        [ResponseType(typeof(tblTransport))]
+        [ResponseType(typeof(TransportDTO))]
         public async Task<IHttpActionResult> DeletetblTransport(int id)
         {
             tblTransport tblTransport = await db.tblTransports.FindAsync(id);
@@ -115,5 +127,12 @@ namespace ProyectoMaylin.Controllers
         {
             return db.tblTransports.Count(e => e.tra_id == id) > 0;
         }
+    }
+    public class TransportDTO
+    {
+        public int tra_id { get; set; }
+        public string tra_description { get; set; }
+        public string tra_type { get; set; }
+        public string tra_category { get; set; }
     }
 }

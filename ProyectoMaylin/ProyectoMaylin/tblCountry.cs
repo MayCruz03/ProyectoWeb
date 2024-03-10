@@ -12,20 +12,20 @@ namespace ProyectoMaylin
     using System;
     using System.Collections.Generic;
     
-    public partial class tblDocument
+    public partial class tblCountry
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblDocument()
+        public tblCountry()
         {
-            this.tblDocumentXCitizens = new HashSet<tblDocumentXCitizen>();
+            this.tblCitizens = new HashSet<tblCitizen>();
         }
     
-        public int doc_id { get; set; }
-        public string doc_type { get; set; }
-        public string doc_category { get; set; }
-        public Nullable<decimal> doc_pricecost { get; set; }
+        public int cou_id { get; set; }
+        public string cou_code { get; set; }
+        public string cou_name { get; set; }
+        public string cou_nationality { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblDocumentXCitizen> tblDocumentXCitizens { get; set; }
+        public virtual ICollection<tblCitizen> tblCitizens { get; set; }
     }
 }

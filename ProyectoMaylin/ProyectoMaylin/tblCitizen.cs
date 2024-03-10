@@ -22,15 +22,20 @@ namespace ProyectoMaylin
         }
     
         public int cit_id { get; set; }
+        public string cit_identifyType { get; set; }
+        public string cit_idnumber { get; set; }
         public string cit_name { get; set; }
         public string cit_lastname { get; set; }
         public Nullable<System.DateTime> cit_birthdate { get; set; }
-        public Nullable<int> cit_age { get; set; }
         public string cit_gender { get; set; }
         public string cit_telephone { get; set; }
-        public string cit_direction { get; set; }
+        public string cit_email { get; set; }
+        public string cit_address { get; set; }
+        public string cit_civilStatus { get; set; }
         public string cit_bloodType { get; set; }
+        public Nullable<int> cit_country { get; set; }
     
+        public virtual tblCountry tblCountry { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDocumentXCitizen> tblDocumentXCitizens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
